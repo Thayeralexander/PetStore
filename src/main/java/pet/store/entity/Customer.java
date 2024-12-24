@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import java.util.HashSet;
 import java.util.Set;
 @Data
 @Entity
@@ -16,5 +17,5 @@ public class Customer {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @ManyToMany(mappedBy = "customers", cascade = CascadeType.PERSIST)
-    private Set<PetStore> petStores;
+    private Set<PetStore> petStores = new HashSet<PetStore>();
 }
